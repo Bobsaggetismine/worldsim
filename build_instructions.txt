@@ -1,0 +1,3 @@
+build using intelij: open project -> build menu -> build artifact -> build/rebuild
+
+running: open terminal in worldsim\out\artifacts\World_Simulation -> java -jar World_Simulation.jar

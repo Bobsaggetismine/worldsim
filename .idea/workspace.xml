@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="World_Simulation" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a81dd8fb-f29f-4d57-98f3-52c5c24f7bec" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Singleton" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1RMWYWOnfuZO0RSfLHWTGXPHVzh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="world_simulation" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\dev\World_Simulation\res" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dev\World_Simulation\res" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Launcher" />
+      <module name="World_Simulation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launcher" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a81dd8fb-f29f-4d57-98f3-52c5c24f7bec" name="Default Changelist" comment="" />
+      <created>1557961071898</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557961071898</updated>
+      <workItem from="1557961076570" duration="4652000" />
+      <workItem from="1557969595258" duration="12718000" />
+      <workItem from="1558024451830" duration="28929000" />
+      <workItem from="1558061014494" duration="7710000" />
+      <workItem from="1558113991900" duration="3656000" />
+      <workItem from="1558117839791" duration="72000" />
+      <workItem from="1558118017275" duration="49000" />
+      <workItem from="1558118108087" duration="483000" />
+      <workItem from="1558118826049" duration="5685000" />
+      <workItem from="1558283634876" duration="610000" />
+      <workItem from="1569477510525" duration="3000" />
+      <workItem from="1569484099726" duration="3391000" />
+      <workItem from="1569541373382" duration="12180000" />
+      <workItem from="1569561989022" duration="1857000" />
+      <workItem from="1569571810962" duration="1202000" />
+      <workItem from="1569650174584" duration="2061000" />
+      <workItem from="1569661636402" duration="2630000" />
+      <workItem from="1569726294156" duration="746000" />
+      <workItem from="1569794147104" duration="17000" />
+      <workItem from="1569807381267" duration="3060000" />
+      <workItem from="1569907349153" duration="1369000" />
+      <workItem from="1569910645062" duration="102000" />
+      <workItem from="1570065458782" duration="1820000" />
+      <workItem from="1570072592941" duration="1088000" />
+      <workItem from="1570075678390" duration="113000" />
+      <workItem from="1574205732434" duration="4729000" />
+      <workItem from="1574332993017" duration="40000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="756" y="405" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583801595640">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="405" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1583801595640" />
+    <state x="414" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583785771463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583785771463" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1583797033340">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583797033340" />
+    <state x="153" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1584320330909">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="122" y="208" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1581623014436" />
+    <state x="153" y="263" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584320330909" />
+    <state x="304" y="143" key="new project wizard" timestamp="1583006336506">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="304" y="143" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1583006336506" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1583801323450">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583801323450" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583800646775">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583800646775" />
+  </component>
+</project>
