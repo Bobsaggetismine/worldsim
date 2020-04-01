@@ -70,7 +70,7 @@ public class Game implements Runnable
     private void update() {
         for (int i = 0; i < cellManager.length(); ++i) {
             for (int j = 0; j < cellManager.length(i); ++j) {
-                if (cellManager.get(i,j) != null) {
+                if (cellManager.get(i,j).active()) {
 
                     Cell p = cellManager.get(i,j);
 
@@ -110,7 +110,7 @@ public class Game implements Runnable
 
                     }
                     //if its not green, is it a player? (if not its water so we will do nothing)
-                    else if (cellManager.get(i+x, j+y) != null) {
+                    else if (cellManager.get(i+x, j+y).active()) {
                         //is this player nit in our tribe?
                         if (!cellManager.get(i+x,j+y).tribe.equals(p.tribe)) {
                             //fight!
@@ -163,7 +163,6 @@ public class Game implements Runnable
         reset_event = true;
     }
     private void loadCountries() {
-
         File countries_file = new File("res\\countries.conf");
         try {
             Scanner in = new Scanner(countries_file);
