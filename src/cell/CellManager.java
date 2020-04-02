@@ -23,7 +23,6 @@ public class CellManager {
                 _countries[j][i] = CellFactory.empty();
             }
         }
-
     }
     public void reset(){
         for(int i = 0; i < Game.HEIGHT; ++i){
@@ -57,7 +56,6 @@ public class CellManager {
         gameWindow.canvas.world().setRGB(x, y, gameConfig.GREEN);
     }
     public void update(){
-        Random random = new Random();
         for (int i = 0; i < this.length(); ++i) {
             for (int j = 0; j < this.length(i); ++j) {
                 if (this.get(i,j).active()) {
@@ -75,8 +73,8 @@ public class CellManager {
                         _window.canvas.world().setRGB(i, j, currentCell.color().getRGB());
                     }
 
-                    int x = random.nextInt(1 - -1 + 1) + -1;
-                    int y = random.nextInt(1 - -1 + 1) + -1;
+                    int x = Rand.randomInt(1 - -1 + 1) + -1;
+                    int y = Rand.randomInt(1 - -1 + 1) + -1;
                     //if the location we're trying to move to is grass
                     if (_window.canvas.world().getRGB(i + x, j + y) == _config.GREEN) {
                         //if we should reproduce
@@ -104,7 +102,7 @@ public class CellManager {
                         //is this player nit in our tribe?
                         if (!this.get(i+x,j+y).tribe().equals(currentCell.tribe())) {
                             //fight!
-                            if ( this.get(i+x, j+y) .damage() > currentCell.damage() && (random.nextInt(100) < _config.STRONGER_WINS_CHANCE) ) {
+                            if ( this.get(i+x, j+y) .damage() > currentCell.damage() && (Rand.randomInt(100) < _config.STRONGER_WINS_CHANCE) ) {
                                 this.kill(i,j, _window, _config, _statistics,  false);
                                 _game.world_population--;
                                 _window.canvas.world().setRGB(i, j, _config.GREEN);
@@ -120,7 +118,7 @@ public class CellManager {
                         //its a player in our tribe
                         else {
                             if (currentCell.diseased()) {
-                                if (random.nextInt(100) < _config.DISEASE_INFECTIVITY)
+                                if (Rand.randomInt(100) < _config.DISEASE_INFECTIVITY)
                                     this.get(x+i,j+y).infect();
                             }
                         }

@@ -75,12 +75,14 @@ public class Cell {
     }
     public boolean shouldDie(Config gameConfig) { return _age > gameConfig.MAX_AGE; }
     public boolean childDiseased(Config gameConfig) {
-        if (_diseased) {
+        if (!_diseased) {
             if (Rand.randomInt(10000) < gameConfig.DISEASE_SPREAD_RATE) {
                 return true;
+            }else{
+                return false;
             }
         }
-        return false;
+        return true;
     }
     public Color color() { return _color; }
     public int damage() { return _damage; }
