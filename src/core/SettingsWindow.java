@@ -1,6 +1,7 @@
+package core;
+
 import javax.swing.*;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 

@@ -1,12 +1,10 @@
-import javafx.util.Pair;
+package core;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Log {
     public static int log(Statistics gameStatistics, int frames) {
-        //if you want to quickly disable logging which will result in slightly improved performance as console IO is expensive.
-        var LOG = true;
-        if (LOG) {
+        //disabling logging (or making it more rare) will markedly improve performance as console IO is expensive
             if (frames == 60) {
                 frames = 0;
 
@@ -36,6 +34,4 @@ public class Log {
             }
             return frames;
         }
-        return frames;
-    }
 }

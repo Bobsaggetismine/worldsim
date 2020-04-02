@@ -1,27 +1,29 @@
+
+package core;
 import java.io.*;
 import java.util.Properties;
 
-class Config {
-    String WORLD_IMAGE = "";
-    int GREEN = 0;                     //color for land. FOR DEV: other green used: -11010225;
-    int REPRODUCTION_THRESHOLD = 0;                //lower this is, the quicker players will reproduce
-    int MAX_DAMAGE = 0;
-    int STRONGER_WINS_CHANCE = 0;
-    int MAX_POPULATION = 0;
-    int MAX_AGE = 0;
+public class Config {
+    public String WORLD_IMAGE = "";
+    public int REPRODUCTION_THRESHOLD = 0;                //lower this is, the quicker players will reproduce
+    public int MAX_DAMAGE = 0;
+    public int GREEN = 0;                     //color for land. FOR DEV: other green used: -11010225;
+    public int STRONGER_WINS_CHANCE = 0;
+    public int MAX_POPULATION = 0;
+    public int MAX_AGE = 0;
 
     //mutation config (mutation changes damage on birth
-    int MUTATION_CHANCE = 0;                                //%chance to mutate (1 = 0.1%)
-    int MUTATION_AMOUNT = 0;                                //higher = higher mutation value range
-    int MUTATION_SUBTRACT = 0;                               //half MUTATION_AMOUNT = mutations will be equally likely to be stronger/weaker. the lower the more likely to be stronger
+    public int MUTATION_CHANCE = 0;                                //%chance to mutate (1 = 0.1%)
+    public int MUTATION_AMOUNT = 0;                                //higher = higher mutation value range
+    public int MUTATION_SUBTRACT = 0;                               //half MUTATION_AMOUNT = mutations will be equally likely to be stronger/weaker. the lower the more likely to be stronger
 
     //disease config
-    int DISEASE_MULTIPLIER = 0;                              //how many years of life does a diseased player lose per year they have this disease
-    int DISEASE_SPREAD_RATE = 0;                             //% chance to spread to children (1=0.01%)
-    int DISEASE_DAMAGE_HARM = 0;                             //how much damage do diseased peoples children lose?
-    int DISEASE_CURE_RATE = 0;                              // % chance to be cured each tick (1=1%)
-    int DISEASE_INFECTIVITY = 0;                    //% chance to spread disease on contact with tribe members
-    boolean LOG = false;
+    public int DISEASE_MULTIPLIER = 0;                              //how many years of life does a diseased player lose per year they have this disease
+    public int DISEASE_SPREAD_RATE = 0;                             //% chance to spread to children (1=0.01%)
+    public int DISEASE_DAMAGE_HARM = 0;                             //how much damage do diseased peoples children lose?
+    public int DISEASE_CURE_RATE = 0;                              // % chance to be cured each tick (1=1%)
+    public int DISEASE_INFECTIVITY = 0;                    //% chance to spread disease on contact with tribe members
+    public  boolean LOG = false;
 
     String CONFIG_FILE = "res\\config.conf";
     private Properties props;

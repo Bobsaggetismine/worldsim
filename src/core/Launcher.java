@@ -1,4 +1,4 @@
-import javax.swing.*;
+package core;
 
 public class Launcher {
     private static Game game;

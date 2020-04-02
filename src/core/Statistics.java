@@ -1,4 +1,7 @@
-import java.util.Dictionary;
+package core;
+
+import cell.Cell;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,9 +33,9 @@ public class Statistics {
         diedToDiease = 0;
     }
     public void addToPopulationStatistics(Cell p) {
-        if(populations.get(p.tribe) == null) populations.put(p.tribe, 1);
-        else populations.put(p.tribe, populations.get(p.tribe) + 1);
-        if(strengths.get(p.tribe) == null) strengths.put(p.tribe, p.getDamage());
-        else strengths.put(p.tribe, strengths.get(p.tribe) + p.getDamage());
+        if(populations.get(p.tribe()) == null) populations.put(p.tribe(), 1);
+        else populations.put(p.tribe(), populations.get(p.tribe()) + 1);
+        if(strengths.get(p.tribe()) == null) strengths.put(p.tribe(), p.damage());
+        else strengths.put(p.tribe(), strengths.get(p.tribe()) + p.damage());
     }
 }

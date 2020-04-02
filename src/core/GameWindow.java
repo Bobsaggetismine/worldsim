@@ -1,9 +1,10 @@
+package core;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class GameWindow extends JFrame {
-    public Canvas canvas;
+    public core.Canvas canvas;
     public JMenuBar menub;
     public JMenu menu;
     public JMenuItem restart_item;
@@ -21,7 +22,7 @@ public class GameWindow extends JFrame {
         this.setSize(new Dimension(Game.WIDTH, Game.HEIGHT+60));
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        canvas = new Canvas(image);
+        canvas = new core.Canvas(image);
         menub = new JMenuBar();
         menu = new JMenu("game");
         restart_item = new JMenuItem("reset game");
