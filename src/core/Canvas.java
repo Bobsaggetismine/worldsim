@@ -20,7 +20,8 @@ public class Canvas extends JPanel {
             System.exit(-3);
         }
     }
-    public BufferedImage world(){
+
+    public BufferedImage world() {
         return _worldImg;
     }
 

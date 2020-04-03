@@ -4,7 +4,6 @@ import core.Config;
 import core.Launcher;
 
 import javax.swing.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -12,21 +11,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class SettingsWindow extends JFrame {
 
     private JPanel panel;
-    private JLabel l_maxDamage, l_strongerWins,l_maxPopulation,l_reproductionThreashhold, l_maxAge;
-    private JLabel l_diseaseMultiplier,l_diseaseSpreadRate, l_diseaseHarm, l_diseaseInfectivity, l_diseaseCureRate;
-    private JLabel l_mutationChance,l_mutationAmount, l_mutationSubtract;
-    private JLabel l_configFile;
 
     private JTextField t_maxDamage, t_strongerWins,t_maxPopulation,t_reproductionThreashhold, t_maxAge;
     private JTextField t_diseaseMultiplier,t_diseaseSpreadRate, t_diseaseHarm, t_diseaseInfectivity, t_diseaseCureRate;
     private JTextField t_mutationChance,t_mutationAmount, t_mutationSubtract;
     private JTextField t_configFile;
 
-    private AtomicBoolean canReset;
+    private final AtomicBoolean canReset;
 
-    private JButton b_saveAndRestart, b_save;
-    private JButton b_loadConfig;
-    private Config gameConfig;
+    private final Config gameConfig;
     public SettingsWindow(Config gameConfig){
         this.gameConfig = gameConfig;
         canReset= new AtomicBoolean(true);
@@ -55,51 +48,44 @@ public class SettingsWindow extends JFrame {
         this.setVisible(true);
     }
     private void saveProperties(){
+        Properties props = gameConfig.getProps();
+        props.setProperty("max_damage",t_maxDamage.getText());
+        props.setProperty("stronger_wins",t_strongerWins.getText());
+        props.setProperty("max_population",t_maxPopulation.getText());
+        props.setProperty("reproduction_threshold",t_reproductionThreashhold.getText());
+        props.setProperty("max_age",t_maxAge.getText());
+        props.setProperty("disease_multiplier",t_diseaseMultiplier.getText());
+        props.setProperty("disease_spread_rate",t_diseaseSpreadRate.getText());
+        props.setProperty("disease_damage_harm",t_diseaseHarm.getText());
+        props.setProperty("disease_infectivity",t_diseaseInfectivity.getText());
+        props.setProperty("disease_cure_rate",t_diseaseCureRate.getText());
+        props.setProperty("mutation_chance",t_mutationChance.getText());
+        props.setProperty("mutation_amount",t_mutationAmount.getText());
+        props.setProperty("mutation_subtract",t_mutationSubtract.getText());
         try {
-            Properties props = gameConfig.getProps();
-            props.setProperty("max_damage",t_maxDamage.getText());
-            props.setProperty("stronger_wins",t_strongerWins.getText());
-            props.setProperty("max_population",t_maxPopulation.getText());
-            props.setProperty("reproduction_threshold",t_reproductionThreashhold.getText());
-            props.setProperty("max_age",t_maxAge.getText());
-            props.setProperty("disease_multiplier",t_diseaseMultiplier.getText());
-            props.setProperty("disease_spread_rate",t_diseaseSpreadRate.getText());
-            props.setProperty("disease_damage_harm",t_diseaseHarm.getText());
-            props.setProperty("disease_infectivity",t_diseaseInfectivity.getText());
-            props.setProperty("disease_cure_rate",t_diseaseCureRate.getText());
-            props.setProperty("mutation_chance",t_mutationChance.getText());
-            props.setProperty("mutation_amount",t_mutationAmount.getText());
-            props.setProperty("mutation_subtract",t_mutationSubtract.getText());
-            try {
-                gameConfig.save();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-
-        } catch (FileNotFoundException ex) {
+            gameConfig.save();
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
     private void initButtons(){
-        b_saveAndRestart = new JButton("Save and restart");
+        JButton b_saveAndRestart = new JButton("Save and restart");
         b_saveAndRestart.setSize(150,20);
         b_saveAndRestart.setLocation(3,300);
         panel.add(b_saveAndRestart);
 
-        b_save = new JButton("save");
+        JButton b_save = new JButton("save");
         b_save.setSize(140,20);
         b_save.setLocation(143,300);
         panel.add(b_save);
 
-        b_loadConfig = new JButton("load config");
+        JButton b_loadConfig = new JButton("load config");
         b_loadConfig.setSize(140,20);
         b_loadConfig.setLocation(3,320);
         panel.add(b_loadConfig);
 
 
-        b_save.addActionListener(e ->{
-            saveProperties();
-        });
+        b_save.addActionListener(e -> saveProperties());
         b_saveAndRestart.addActionListener(e ->{
             saveProperties();
             Launcher.start_new_game();
@@ -110,7 +96,9 @@ public class SettingsWindow extends JFrame {
                 gameConfig.loadProps();
                 gameConfig.loadConfig();
                 init();
-            }catch(Exception ex){}
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
         });
     }
     private void initTextBoxes(){
@@ -195,20 +183,20 @@ public class SettingsWindow extends JFrame {
         panel.add(t_configFile);
     }
     private void initLabels(){
-        l_maxDamage = new JLabel("Max Damage");
-        l_strongerWins = new JLabel("Stronger Wins");
-        l_maxPopulation = new JLabel("Max population");
-        l_reproductionThreashhold = new JLabel("Reproduction Threashold");
-        l_maxAge = new JLabel("Max age");
-        l_diseaseMultiplier = new JLabel("Disease Multiplier");
-        l_diseaseSpreadRate = new JLabel("Disease Spread Rate");
-        l_diseaseHarm = new JLabel("Disease Harm");
-        l_diseaseInfectivity = new JLabel("Disease Infectivity");
-        l_diseaseCureRate = new JLabel("Disease Cure Rate");
-        l_configFile = new JLabel("Config File");
-        l_mutationChance = new JLabel("Mutation Chance");
-        l_mutationAmount = new JLabel("Mutation Amount");
-        l_mutationSubtract = new JLabel("Mutation Subtract");
+        JLabel l_maxDamage = new JLabel("Max Damage");
+        JLabel l_strongerWins = new JLabel("Stronger Wins");
+        JLabel l_maxPopulation = new JLabel("Max population");
+        JLabel l_reproductionThreashhold = new JLabel("Reproduction Threashold");
+        JLabel l_maxAge = new JLabel("Max age");
+        JLabel l_diseaseMultiplier = new JLabel("Disease Multiplier");
+        JLabel l_diseaseSpreadRate = new JLabel("Disease Spread Rate");
+        JLabel l_diseaseHarm = new JLabel("Disease Harm");
+        JLabel l_diseaseInfectivity = new JLabel("Disease Infectivity");
+        JLabel l_diseaseCureRate = new JLabel("Disease Cure Rate");
+        JLabel l_configFile = new JLabel("Config File");
+        JLabel l_mutationChance = new JLabel("Mutation Chance");
+        JLabel l_mutationAmount = new JLabel("Mutation Amount");
+        JLabel l_mutationSubtract = new JLabel("Mutation Subtract");
 
         l_maxDamage.setLocation(3,20);
         l_strongerWins.setLocation(3,40);

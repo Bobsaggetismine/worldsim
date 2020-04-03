@@ -15,7 +15,7 @@ public class GameWindow extends JFrame {
     public JMenuItem restart_item;
     public JMenuItem open_settings_item;
 
-    private Config gameConfig;
+    private final Config gameConfig;
     public GameWindow(String image, Config gameConfig) {
         this.gameConfig = gameConfig;
         init(image);
@@ -35,12 +35,8 @@ public class GameWindow extends JFrame {
         menu.add(open_settings_item);
         menu.add(restart_item);
         menub.setBackground(Color.gray);
-        restart_item.addActionListener(e ->{
-            Launcher.start_new_game();
-        });
-        open_settings_item.addActionListener(e ->{
-            new SettingsWindow(gameConfig);
-        });
+        restart_item.addActionListener(e -> Launcher.start_new_game());
+        open_settings_item.addActionListener(e -> new SettingsWindow(gameConfig));
         menub.add(menu);
         menub.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 

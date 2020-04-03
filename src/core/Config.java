@@ -1,5 +1,6 @@
 
 package core;
+
 import java.io.*;
 import java.util.Properties;
 
@@ -23,19 +24,19 @@ public class Config {
     public int DISEASE_DAMAGE_HARM = 0;                             //how much damage do diseased peoples children lose?
     public int DISEASE_CURE_RATE = 0;                              // % chance to be cured each tick (1=1%)
     public int DISEASE_INFECTIVITY = 0;                    //% chance to spread disease on contact with tribe members
-    public  boolean LOG = false;
+    public boolean LOG = false;
 
     public String CONFIG_FILE = "res/config.conf";
-    private Properties props;
+    private final Properties props;
 
 
-
-    Config(){
+    Config() {
         props = new Properties();
         loadProps();
     }
-    public void loadProps(){
-        InputStream inputStream = null;
+
+    public void loadProps() {
+        InputStream inputStream;
         try {
             inputStream = new FileInputStream(new File(CONFIG_FILE));
             props.load(inputStream);
@@ -47,13 +48,13 @@ public class Config {
             e.printStackTrace();
         }
     }
-    public Properties getProps() throws FileNotFoundException {
+
+    public Properties getProps() {
         return props;
     }
 
-    public void loadConfig() throws FileNotFoundException {
-        try
-        {
+    public void loadConfig() {
+        try {
             Properties props = getProps();
 
             MAX_DAMAGE = Integer.parseInt(props.getProperty("max_damage"));
@@ -71,19 +72,18 @@ public class Config {
             MUTATION_SUBTRACT = Integer.parseInt(props.getProperty("mutation_subtract"));
             MUTATION_AMOUNT = Integer.parseInt(props.getProperty("mutation_amount"));
             MUTATION_CHANCE = Integer.parseInt(props.getProperty("mutation_chance"));
-            GREEN=Integer.parseInt(props.getProperty("green"));
+            GREEN = Integer.parseInt(props.getProperty("green"));
             WORLD_IMAGE = props.getProperty("map");
-            LOG= Boolean.parseBoolean(props.getProperty("log"));
+            LOG = Boolean.parseBoolean(props.getProperty("log"));
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Error loading configuration file");
             e.printStackTrace();
             System.exit(2);
         }
 
     }
+
     public void save() throws IOException {
         FileOutputStream out = new FileOutputStream(CONFIG_FILE);
         props.store(out, null);

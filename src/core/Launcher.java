@@ -2,12 +2,12 @@ package core;
 
 public class Launcher {
     private static Game game;
-    public static void start_new_game(){
-        if(game == null){
+
+    public static void start_new_game() {
+        if (game == null) {
             game = new Game();
             game.run();
-        }
-        else{
+        } else {
             game.set_reset();
         }
     }
