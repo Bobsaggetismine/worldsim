@@ -1,9 +1,13 @@
-package core;
+package ui;
+
+import core.Config;
+import core.Launcher;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SettingsWindow extends JFrame {
 
@@ -18,20 +22,24 @@ public class SettingsWindow extends JFrame {
     private JTextField t_mutationChance,t_mutationAmount, t_mutationSubtract;
     private JTextField t_configFile;
 
+    private AtomicBoolean canReset;
 
     private JButton b_saveAndRestart, b_save;
     private JButton b_loadConfig;
     private Config gameConfig;
     public SettingsWindow(Config gameConfig){
         this.gameConfig = gameConfig;
+        canReset= new AtomicBoolean(true);
         init();
     }
 
-
+    public synchronized void toggleReset(){
+        canReset.set(!canReset.get());
+    }
 
 
     private void init(){
-        ImageIcon img = new ImageIcon("res\\ico.png");
+        ImageIcon img = new ImageIcon("res/ico.png");
 
         setIconImage(img.getImage());
         this.setLayout(null);

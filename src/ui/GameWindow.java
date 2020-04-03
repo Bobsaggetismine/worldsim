@@ -1,10 +1,15 @@
-package core;
+package ui;
+
+import core.Canvas;
+import core.Config;
+import core.Game;
+import core.Launcher;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GameWindow extends JFrame {
-    public core.Canvas canvas;
+    private Canvas _canvas;
     public JMenuBar menub;
     public JMenu menu;
     public JMenuItem restart_item;
@@ -22,7 +27,7 @@ public class GameWindow extends JFrame {
         this.setSize(new Dimension(Game.WIDTH, Game.HEIGHT+60));
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        canvas = new core.Canvas(image);
+        _canvas = new Canvas(image);
         menub = new JMenuBar();
         menu = new JMenu("game");
         restart_item = new JMenuItem("reset game");
@@ -40,15 +45,19 @@ public class GameWindow extends JFrame {
         menub.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 
         this.setJMenuBar(menub);
-        this.setContentPane(canvas);
+        this.setContentPane(_canvas);
         this.setVisible(true);
     }
     public void reset(String image){
-        canvas = new Canvas(image);
-        canvas.setLayout(null);
-        this.setContentPane(canvas);
+        _canvas = new Canvas(image);
+        _canvas.setLayout(null);
+        this.setContentPane(_canvas);
         this.setVisible(true);
     }
-
-
+    public void setPixel(int x, int y, int color){
+        _canvas.world().setRGB(x, y, color);
+    }
+    public int getPixel(int x, int y){
+        return _canvas.world().getRGB(x,y);
+    }
 }

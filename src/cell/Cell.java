@@ -24,11 +24,11 @@ public class Cell {
         _xBias = 0;
         _yBias = 0;
     }
-    public void set(Color color, String tribe, int damage, boolean isDiseased, int xbias, int ybias, int age) {
+    public void set(Color color, String tribe, int damage, boolean isDiseased, int xbias, int ybias, int age, int reproduction) {
         this._color = color;
         this._tribe = tribe;
         this._age = age;
-        this._reproduction = 0;
+        this._reproduction = reproduction;
         this._damage = damage;
         this._diseased = isDiseased;
         this._xBias = xbias;
@@ -36,6 +36,13 @@ public class Cell {
         this._active = true;
     }
 
+    public void update(Config gc){
+        handleAging(gc);
+        attenptCure(gc);
+    }
+    private void attenptCure(Config gameConfig){
+        if (Rand.randomInt(100) < gameConfig.DISEASE_CURE_RATE) cure();
+    }
     public int childDamage(Config gameConfig) {
         if (Rand.randomInt(1000) < gameConfig.MUTATION_CHANCE) {
             if (_diseased) {
@@ -62,15 +69,12 @@ public class Cell {
     public void infect() {
         _diseased = true;
     }
-    public int handleAging(Config gameConfig) {
+    public void handleAging(Config gameConfig) {
         _reproduction++;
         if (_diseased) {
-            if (Rand.randomInt(100) < gameConfig.DISEASE_CURE_RATE) cure();
             _age += gameConfig.DISEASE_MULTIPLIER;
-            return 1;
         } else {
             _age++;
-            return 0;
         }
     }
     public boolean shouldDie(Config gameConfig) { return _age > gameConfig.MAX_AGE; }
@@ -78,9 +82,8 @@ public class Cell {
         if (!_diseased) {
             if (Rand.randomInt(10000) < gameConfig.DISEASE_SPREAD_RATE) {
                 return true;
-            }else{
-                return false;
             }
+            return false;
         }
         return true;
     }

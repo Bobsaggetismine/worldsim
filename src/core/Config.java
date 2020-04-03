@@ -25,14 +25,16 @@ public class Config {
     public int DISEASE_INFECTIVITY = 0;                    //% chance to spread disease on contact with tribe members
     public  boolean LOG = false;
 
-    String CONFIG_FILE = "res\\config.conf";
+    public String CONFIG_FILE = "res/config.conf";
     private Properties props;
+
+
 
     Config(){
         props = new Properties();
         loadProps();
     }
-    void loadProps(){
+    public void loadProps(){
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream(new File(CONFIG_FILE));
@@ -45,11 +47,11 @@ public class Config {
             e.printStackTrace();
         }
     }
-    Properties getProps() throws FileNotFoundException {
+    public Properties getProps() throws FileNotFoundException {
         return props;
     }
 
-    void loadConfig() throws FileNotFoundException {
+    public void loadConfig() throws FileNotFoundException {
         try
         {
             Properties props = getProps();
@@ -82,7 +84,7 @@ public class Config {
         }
 
     }
-    void save() throws IOException {
+    public void save() throws IOException {
         FileOutputStream out = new FileOutputStream(CONFIG_FILE);
         props.store(out, null);
         loadProps();

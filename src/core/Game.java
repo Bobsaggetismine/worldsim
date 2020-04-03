@@ -1,7 +1,7 @@
 package core;
 
-import cell.Cell;
 import cell.CellManager;
+import ui.GameWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +28,7 @@ public class Game implements Runnable
     private int frames;
     private boolean reset_event = false;
 
+    private Thread logThread;
 
     public Game() {
         world_population = 0;
@@ -45,6 +46,9 @@ public class Game implements Runnable
         gameWindow = new GameWindow(gameConfig.WORLD_IMAGE,gameConfig);
         cellManager = new CellManager(gameStatistics, gameConfig, gameWindow, this);
         loadCountries();
+
+        logThread = new Thread(new Log(gameStatistics));
+        logThread.start();
     }
     public void run() {
         try{
@@ -63,17 +67,13 @@ public class Game implements Runnable
             JOptionPane.showOptionDialog(null, "All units died, please fix settings so this cannot happen", "Warning", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
             System.exit(-4);
         }
-
     }
     private void render() {
         gameWindow.repaint();
     }
     private void update() {
         cellManager.update();
-        if(gameConfig.LOG) {
-            frames=Log.log(gameStatistics, frames);
-            gameStatistics.resetStatistics();
-        }
+        gameStatistics.resetStatistics();
     }
 
     private void reset(){
@@ -119,7 +119,6 @@ public class Game implements Runnable
         for (int j = yStart; j < yEnd; ++j) {
             if (random.nextInt(3) == 1) {
                 cellManager.setCountryInitially(i,j,new Color(r, g, b), t, damage);
-                world_population++;
             }
         }
     }
