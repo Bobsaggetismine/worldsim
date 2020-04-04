@@ -1,7 +1,7 @@
-package ui;
+package ui.views;
 
 import core.Canvas;
-import core.Config;
+import ui.models.Settings;
 import core.Game;
 import core.Launcher;
 
@@ -15,9 +15,9 @@ public class GameWindow extends JFrame {
     public JMenuItem restart_item;
     public JMenuItem open_settings_item;
 
-    private final Config gameConfig;
-    public GameWindow(String image, Config gameConfig) {
-        this.gameConfig = gameConfig;
+    private final Settings gameSettings;
+    public GameWindow(String image, Settings gameSettings) {
+        this.gameSettings = gameSettings;
         init(image);
     }
     private void init(String image){
@@ -36,7 +36,7 @@ public class GameWindow extends JFrame {
         menu.add(restart_item);
         menub.setBackground(Color.gray);
         restart_item.addActionListener(e -> Launcher.start_new_game());
-        open_settings_item.addActionListener(e -> new SettingsWindow(gameConfig));
+        open_settings_item.addActionListener(e -> new SettingsWindow(gameSettings));
         menub.add(menu);
         menub.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 
@@ -55,5 +55,8 @@ public class GameWindow extends JFrame {
     }
     public int getPixel(int x, int y){
         return _canvas.world().getRGB(x,y);
+    }
+    public Canvas canvas(){
+        return _canvas;
     }
 }

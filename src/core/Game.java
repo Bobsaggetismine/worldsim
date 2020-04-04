@@ -1,12 +1,18 @@
 package core;
 
 import cell.CellManager;
-import ui.GameWindow;
+import core.network.Client;
+import core.network.NetworkListener;
+import core.network.NetworkSender;
+import ui.models.Settings;
+import ui.views.GameWindow;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,7 +21,7 @@ public class Game implements Runnable {
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
 
-    private final Config gameConfig;
+    private final Settings gameSettings;
     private final Statistics gameStatistics;
     private final CellManager cellManager;
     private final GameWindow gameWindow;
@@ -28,24 +34,31 @@ public class Game implements Runnable {
 
     private boolean reset_event = false;
 
+
     public Game() {
         world_population = 0;
         random = new Random();
-        gameConfig = new Config();
+        gameSettings = new Settings();
         gameStatistics = new Statistics();
 
         try {
-            gameConfig.loadConfig();
+            gameSettings.loadConfig();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        gameWindow = new GameWindow(gameConfig.WORLD_IMAGE, gameConfig);
-        cellManager = new CellManager(gameStatistics, gameConfig, gameWindow, this);
+        gameWindow = new GameWindow(gameSettings.WORLD_IMAGE, gameSettings);
+        cellManager = new CellManager(gameStatistics, gameSettings, gameWindow, this);
         loadCountries();
 
+        ArrayList<Client> clients = new ArrayList<Client>();
+
         Thread logThread = new Thread(new Log(gameStatistics));
+        Thread networkReciever = new Thread(new NetworkListener(clients));
+        Thread networkSender = new Thread(new NetworkSender(clients, gameWindow.canvas().world()));
         logThread.start();
+        networkReciever.start();
+        networkSender.start();
     }
 
     public void run() {
@@ -76,9 +89,9 @@ public class Game implements Runnable {
     }
 
     private void reset() {
-        gameWindow.reset(gameConfig.WORLD_IMAGE);
+        gameWindow.reset(gameSettings.WORLD_IMAGE);
         cellManager.reset();
-        gameConfig.loadConfig();
+        gameSettings.loadConfig();
         gameStatistics.fullReset();
         world_population = 1;
         loadCountries();
@@ -110,7 +123,7 @@ public class Game implements Runnable {
     }
 
     private void generateCountries(String t, int r, int g, int b, int iStart, int iEnd, int yStart, int yEnd) {
-        int damage = random.nextInt(gameConfig.MAX_DAMAGE) + 1;
+        int damage = random.nextInt(gameSettings.MAX_DAMAGE) + 1;
         for (int i = iStart; i < iEnd; ++i) {
             for (int j = yStart; j < yEnd; ++j) {
                 if (random.nextInt(3) == 1) {

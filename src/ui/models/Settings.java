@@ -1,10 +1,10 @@
 
-package core;
+package ui.models;
 
 import java.io.*;
 import java.util.Properties;
 
-public class Config {
+public class Settings {
     public String WORLD_IMAGE = "";
     public int REPRODUCTION_THRESHOLD = 0;                //lower this is, the quicker players will reproduce
     public int MAX_DAMAGE = 0;
@@ -30,7 +30,7 @@ public class Config {
     private final Properties props;
 
 
-    Config() {
+    public Settings() {
         props = new Properties();
         loadProps();
     }

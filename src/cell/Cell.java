@@ -1,6 +1,7 @@
 package cell;
 
 import core.*;
+import ui.models.Settings;
 
 import java.awt.*;
 
@@ -32,28 +33,28 @@ public class Cell {
         this._active = true;
     }
 
-    public void update(Config gc) {
+    public void update(Settings gc) {
         handleAging(gc);
         attenptCure(gc);
     }
 
-    private void attenptCure(Config gameConfig) {
-        if (Rand.randomInt(100) < gameConfig.DISEASE_CURE_RATE) cure();
+    private void attenptCure(Settings gameSettings) {
+        if (Rand.randomInt(100) < gameSettings.DISEASE_CURE_RATE) cure();
     }
 
-    public int childDamage(Config gameConfig) {
-        if (Rand.randomInt(1000) < gameConfig.MUTATION_CHANCE) {
+    public int childDamage(Settings gameSettings) {
+        if (Rand.randomInt(1000) < gameSettings.MUTATION_CHANCE) {
             int temp;
             if (_diseased) {
-                temp = ((_damage - gameConfig.DISEASE_DAMAGE_HARM) + Rand.randomInt(gameConfig.MUTATION_AMOUNT) - gameConfig.MUTATION_SUBTRACT);
+                temp = ((_damage - gameSettings.DISEASE_DAMAGE_HARM) + Rand.randomInt(gameSettings.MUTATION_AMOUNT) - gameSettings.MUTATION_SUBTRACT);
             } else {
-                temp = _damage + (Rand.randomInt(gameConfig.MUTATION_AMOUNT) - gameConfig.MUTATION_SUBTRACT);
+                temp = _damage + (Rand.randomInt(gameSettings.MUTATION_AMOUNT) - gameSettings.MUTATION_SUBTRACT);
             }
             if (temp > 0) return temp;
             return 1;
         }
-        if (_diseased && _damage - gameConfig.DISEASE_DAMAGE_HARM > 0)
-            return _damage - gameConfig.DISEASE_DAMAGE_HARM;
+        if (_diseased && _damage - gameSettings.DISEASE_DAMAGE_HARM > 0)
+            return _damage - gameSettings.DISEASE_DAMAGE_HARM;
         else if (_diseased) return 1;
 
         return _damage;
@@ -68,22 +69,22 @@ public class Cell {
         _diseased = true;
     }
 
-    public void handleAging(Config gameConfig) {
+    public void handleAging(Settings gameSettings) {
         _reproduction++;
         if (_diseased) {
-            _age += gameConfig.DISEASE_MULTIPLIER;
+            _age += gameSettings.DISEASE_MULTIPLIER;
         } else {
             _age++;
         }
     }
 
-    public boolean shouldDie(Config gameConfig) {
-        return _age > gameConfig.MAX_AGE;
+    public boolean shouldDie(Settings gameSettings) {
+        return _age > gameSettings.MAX_AGE;
     }
 
-    public boolean childDiseased(Config gameConfig) {
+    public boolean childDiseased(Settings gameSettings) {
         if (!_diseased) {
-            return Rand.randomInt(10000) < gameConfig.DISEASE_SPREAD_RATE;
+            return Rand.randomInt(10000) < gameSettings.DISEASE_SPREAD_RATE;
         }
         return true;
     }

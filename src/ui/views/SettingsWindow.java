@@ -1,12 +1,11 @@
-package ui;
+package ui.views;
 
-import core.Config;
+import ui.models.Settings;
 import core.Launcher;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SettingsWindow extends JFrame {
 
@@ -17,17 +16,11 @@ public class SettingsWindow extends JFrame {
     private JTextField t_mutationChance,t_mutationAmount, t_mutationSubtract;
     private JTextField t_configFile;
 
-    private final AtomicBoolean canReset;
 
-    private final Config gameConfig;
-    public SettingsWindow(Config gameConfig){
-        this.gameConfig = gameConfig;
-        canReset= new AtomicBoolean(true);
+    private final Settings gameSettings;
+    public SettingsWindow(Settings gameSettings){
+        this.gameSettings = gameSettings;
         init();
-    }
-
-    public synchronized void toggleReset(){
-        canReset.set(!canReset.get());
     }
 
 
@@ -48,7 +41,7 @@ public class SettingsWindow extends JFrame {
         this.setVisible(true);
     }
     private void saveProperties(){
-        Properties props = gameConfig.getProps();
+        Properties props = gameSettings.getProps();
         props.setProperty("max_damage",t_maxDamage.getText());
         props.setProperty("stronger_wins",t_strongerWins.getText());
         props.setProperty("max_population",t_maxPopulation.getText());
@@ -63,7 +56,7 @@ public class SettingsWindow extends JFrame {
         props.setProperty("mutation_amount",t_mutationAmount.getText());
         props.setProperty("mutation_subtract",t_mutationSubtract.getText());
         try {
-            gameConfig.save();
+            gameSettings.save();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -92,9 +85,9 @@ public class SettingsWindow extends JFrame {
         });
         b_loadConfig.addActionListener(e ->{
             try{
-                gameConfig.CONFIG_FILE = t_configFile.getText();
-                gameConfig.loadProps();
-                gameConfig.loadConfig();
+                gameSettings.CONFIG_FILE = t_configFile.getText();
+                gameSettings.loadProps();
+                gameSettings.loadConfig();
                 init();
             }catch(Exception ex){
                 ex.printStackTrace();
@@ -151,21 +144,21 @@ public class SettingsWindow extends JFrame {
 
         t_configFile.setSize(100,20);
 
-        t_maxDamage.setText( gameConfig.MAX_DAMAGE+"");
-        t_strongerWins.setText( gameConfig.STRONGER_WINS_CHANCE + "");
-        t_maxPopulation.setText( gameConfig.MAX_POPULATION+"");
-        t_reproductionThreashhold.setText( gameConfig.REPRODUCTION_THRESHOLD+"");
-        t_maxAge.setText( gameConfig.MAX_AGE+"");
-        t_diseaseMultiplier.setText( gameConfig.DISEASE_MULTIPLIER + "" );
-        t_diseaseSpreadRate.setText( gameConfig.DISEASE_SPREAD_RATE + "" );
-        t_diseaseHarm.setText( gameConfig.DISEASE_DAMAGE_HARM + "" );
-        t_diseaseInfectivity.setText( gameConfig.DISEASE_INFECTIVITY + "" );
-        t_diseaseCureRate.setText( gameConfig.DISEASE_CURE_RATE + "" );
-        t_mutationChance.setText( gameConfig.MUTATION_CHANCE + "");
-        t_mutationAmount.setText( gameConfig.MUTATION_AMOUNT + "" );
-        t_mutationSubtract.setText( gameConfig.MUTATION_SUBTRACT + "");
+        t_maxDamage.setText( gameSettings.MAX_DAMAGE+"");
+        t_strongerWins.setText( gameSettings.STRONGER_WINS_CHANCE + "");
+        t_maxPopulation.setText( gameSettings.MAX_POPULATION+"");
+        t_reproductionThreashhold.setText( gameSettings.REPRODUCTION_THRESHOLD+"");
+        t_maxAge.setText( gameSettings.MAX_AGE+"");
+        t_diseaseMultiplier.setText( gameSettings.DISEASE_MULTIPLIER + "" );
+        t_diseaseSpreadRate.setText( gameSettings.DISEASE_SPREAD_RATE + "" );
+        t_diseaseHarm.setText( gameSettings.DISEASE_DAMAGE_HARM + "" );
+        t_diseaseInfectivity.setText( gameSettings.DISEASE_INFECTIVITY + "" );
+        t_diseaseCureRate.setText( gameSettings.DISEASE_CURE_RATE + "" );
+        t_mutationChance.setText( gameSettings.MUTATION_CHANCE + "");
+        t_mutationAmount.setText( gameSettings.MUTATION_AMOUNT + "" );
+        t_mutationSubtract.setText( gameSettings.MUTATION_SUBTRACT + "");
 
-        t_configFile.setText(gameConfig.CONFIG_FILE);
+        t_configFile.setText(gameSettings.CONFIG_FILE);
 
         panel.add(t_maxDamage);
         panel.add(t_strongerWins);

@@ -1,7 +1,8 @@
 package cell;
 
 import core.*;
-import ui.GameWindow;
+import ui.models.Settings;
+import ui.views.GameWindow;
 
 import java.awt.*;
 
@@ -9,14 +10,14 @@ public class CellManager {
 
     private final Cell[][] _countries;
     private final Statistics _statistics;
-    private final Config _config;
+    private final Settings _settings;
     private final GameWindow _window;
     private final Game _game;
 
-    public CellManager(Statistics stats, Config conf, GameWindow window, Game game) {
+    public CellManager(Statistics stats, Settings conf, GameWindow window, Game game) {
         this._game = game;
         this._window = window;
-        this._config = conf;
+        this._settings = conf;
         this._statistics = stats;
         _countries = new Cell[Game.WIDTH][Game.HEIGHT];
 
@@ -52,11 +53,11 @@ public class CellManager {
         return _countries[x][y];
     }
 
-    public void kill(int x, int y, GameWindow gameWindow, Config gameConfig, Statistics gameStatistics, boolean addToStats) {
+    public void kill(int x, int y, GameWindow gameWindow, Settings gameSettings, Statistics gameStatistics, boolean addToStats) {
         if (_countries[x][y].diseased() && addToStats) gameStatistics.incDiedToDisease();
-        else if (_countries[x][y].age() > gameConfig.MAX_AGE && addToStats) gameStatistics.incDiedToAging();
+        else if (_countries[x][y].age() > gameSettings.MAX_AGE && addToStats) gameStatistics.incDiedToAging();
         _countries[x][y].setInactive();
-        gameWindow.setPixel(x, y, gameConfig.GREEN);
+        gameWindow.setPixel(x, y, gameSettings.GREEN);
         _game.world_population--;
     }
 
@@ -64,10 +65,10 @@ public class CellManager {
         for (int i = 0; i < this.length(); ++i) {
             for (int j = 0; j < this.length(i); ++j) {
                 Cell currentCell = this.get(i, j);
-                currentCell.update(_config);
+                currentCell.update(_settings);
                 if (this.get(i, j).active()) {
-                    if (currentCell.shouldDie(_config)) {
-                        this.kill(i, j, _window, _config, _statistics, true);
+                    if (currentCell.shouldDie(_settings)) {
+                        this.kill(i, j, _window, _settings, _statistics, true);
                         continue;
                     } else {
                         _window.setPixel(i, j, currentCell.color().getRGB());
@@ -75,14 +76,14 @@ public class CellManager {
                     }
                     int x = Rand.randomInt(1 - -1 + 1) + -1, y = Rand.randomInt(1 - -1 + 1) + -1;
                     //if the location we're trying to move to is grass
-                    if (_window.getPixel(i + x, j + y) == _config.GREEN) {
+                    if (_window.getPixel(i + x, j + y) == _settings.GREEN) {
                         //if we should reproduce
-                        if (currentCell.reproduction() > _config.REPRODUCTION_THRESHOLD) {
-                            if (_game.world_population < _config.MAX_POPULATION) {
+                        if (currentCell.reproduction() > _settings.REPRODUCTION_THRESHOLD) {
+                            if (_game.world_population < _settings.MAX_POPULATION) {
                                 //we do
                                 currentCell.setReproduction(0);
                                 _window.setPixel(i + x, j + y, currentCell.color().getRGB());
-                                this.setCountry((i + x), (j + y), currentCell.color(), currentCell.tribe(), currentCell.childDamage(_config), currentCell.childDiseased(_config), 0, 0);
+                                this.setCountry((i + x), (j + y), currentCell.color(), currentCell.tribe(), currentCell.childDamage(_settings), currentCell.childDiseased(_settings), 0, 0);
                             } else {
                                 if (Rand.randomInt(1000) < 5) {
                                     System.out.println("POPULATION MAXED OUT!");
@@ -92,10 +93,10 @@ public class CellManager {
                             }
                         } else {
                             //otherwise we just move
-                            _window.setPixel(i, j, _config.GREEN);
+                            _window.setPixel(i, j, _settings.GREEN);
                             _window.setPixel(i + x, j + y, currentCell.color().getRGB());
-                            this.setCountry((i + x), (j + y), currentCell.color(), currentCell.tribe(), currentCell.damage(), currentCell.childDiseased(_config), currentCell.age(), currentCell.reproduction());
-                            this.kill(i, j, _window, _config, _statistics, false);
+                            this.setCountry((i + x), (j + y), currentCell.color(), currentCell.tribe(), currentCell.damage(), currentCell.childDiseased(_settings), currentCell.age(), currentCell.reproduction());
+                            this.kill(i, j, _window, _settings, _statistics, false);
                         }
                     }
                     //if its not green, is it a player? (if not its (presumably) water so we will do nothing)
@@ -103,22 +104,22 @@ public class CellManager {
                         //is this player nit in our tribe?
                         if (!this.get(i + x, j + y).tribe().equals(currentCell.tribe())) {
                             //fight
-                            if (this.get(i + x, j + y).damage() > currentCell.damage() && (Rand.randomInt(100) < _config.STRONGER_WINS_CHANCE)) {
-                                this.kill(i, j, _window, _config, _statistics, false);
-                                _window.setPixel(i, j, _config.GREEN);
+                            if (this.get(i + x, j + y).damage() > currentCell.damage() && (Rand.randomInt(100) < _settings.STRONGER_WINS_CHANCE)) {
+                                this.kill(i, j, _window, _settings, _statistics, false);
+                                _window.setPixel(i, j, _settings.GREEN);
                                 _statistics.incDiedToWar();
                             } else {
                                 this.setCountry(i + x, j + y, currentCell.color(), currentCell.tribe(), currentCell.damage(), currentCell.diseased(), currentCell.age(), currentCell.reproduction());
                                 _game.world_population--;
-                                this.kill(i, j, _window, _config, _statistics, false);
-                                _window.setPixel(i, j, _config.GREEN);
+                                this.kill(i, j, _window, _settings, _statistics, false);
+                                _window.setPixel(i, j, _settings.GREEN);
                                 _statistics.incDiedToWar();
                             }
                         }
                         //its a player in our tribe
                         else {
                             if (currentCell.diseased()) {
-                                if (Rand.randomInt(100) < _config.DISEASE_INFECTIVITY)
+                                if (Rand.randomInt(100) < _settings.DISEASE_INFECTIVITY)
                                     this.get(x + i, j + y).infect();
                             }
                         }
