@@ -34,6 +34,8 @@ public class Game implements Runnable {
 
     private boolean reset_event = false;
 
+    private Thread logThread, connectionAccepterThread, networkTransmitterThread;
+
 
     public Game() {
         world_population = 0;
@@ -53,12 +55,12 @@ public class Game implements Runnable {
 
         ArrayList<Client> clients = new ArrayList<Client>();
 
-        Thread logThread = new Thread(new Log(gameStatistics));
-        Thread networkReciever = new Thread(new NetworkListener(clients));
-        Thread networkSender = new Thread(new NetworkSender(clients, gameWindow.canvas().world()));
+        logThread = new Thread(new Log(gameStatistics));
+        connectionAccepterThread = new Thread(new NetworkListener(clients));
+        networkTransmitterThread = new Thread(new NetworkSender(clients, gameWindow.canvas().world()));
         logThread.start();
-        networkReciever.start();
-        networkSender.start();
+        connectionAccepterThread.start();
+        networkTransmitterThread.start();
     }
 
     public void run() {

@@ -17,6 +17,7 @@ public class SettingsWindow extends JFrame {
     private JTextField t_configFile;
 
 
+
     private final Settings gameSettings;
     public SettingsWindow(Settings gameSettings){
         this.gameSettings = gameSettings;

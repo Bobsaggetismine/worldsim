@@ -19,9 +19,9 @@ public class NetworkSender implements Runnable{
         while(running){
             Client toRemove = null;
             for(var e : _clients){
-                BufferedImage temp = _image;
                 try {
-                    e.send(temp);
+                    e.send(_image);
+
                 } catch (IOException ex) {
                     e.close();
                     toRemove = e;
@@ -33,7 +33,7 @@ public class NetworkSender implements Runnable{
                 toRemove = null;
             }
             try {
-                Thread.sleep(10);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

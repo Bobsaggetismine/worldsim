@@ -24,7 +24,7 @@ public class Client {
     }
     public void close(){
         try {
-
+            _socket.getOutputStream().flush();
             _socket.close();
         } catch (IOException e) {
             System.err.println("Unable to close socket! (was likely already closed)");

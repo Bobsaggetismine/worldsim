@@ -7,29 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a81dd8fb-f29f-4d57-98f3-52c5c24f7bec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/network/NetworkListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/network/NetworkSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/SettingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/World_Simulation/World_Simulation.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/World_Simulation/World_Simulation.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/World_Simulation/res/config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/World_Simulation/res/config.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/cell/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/cell/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/cell/CellManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/cell/CellManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/Canvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/Canvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/Config.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/META-INF/World_Simulation.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/Launcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/Rand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/Rand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/Statistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/Statistics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/ui/GameWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/ui/SettingsWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cell/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cell/CellManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cell/CellManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/models/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/network/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/network/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/core/network/NetworkSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/core/network/NetworkSender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/World_Simulation/ui/views/SettingsWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/World_Simulation/ui/views/SettingsWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/SettingsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/SettingsWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/network/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/network/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/network/NetworkSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/network/NetworkSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/controllers/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/views/SettingsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/SettingsWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,62 +133,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1585939372292">
+    <state width="1877" height="120" key="GridCell.Tab.0.bottom" timestamp="1612745437543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585939372292" />
-    <state x="756" y="405" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583801595640">
+    <state width="1877" height="120" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612745437543" />
+    <state width="1877" height="120" key="GridCell.Tab.0.center" timestamp="1612745437543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="756" y="405" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1583801595640" />
-    <state x="189" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585879384091">
+    <state width="1877" height="120" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612745437543" />
+    <state width="1877" height="120" key="GridCell.Tab.0.left" timestamp="1612745437543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="189" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585879384091" />
-    <state x="718" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585873306629">
+    <state width="1877" height="120" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612745437543" />
+    <state width="1877" height="120" key="GridCell.Tab.0.right" timestamp="1612745437543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="718" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1585873306629" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1585938281883">
+    <state width="1877" height="120" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612745437543" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1616728244139">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585938281883" />
-    <state width="1130" height="282" key="GridCell.Tab.0.bottom" timestamp="1585960348552">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616728244139" />
+    <state x="342" y="140" key="new project wizard" timestamp="1613172284787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1130" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585960348552" />
-    <state width="1130" height="282" key="GridCell.Tab.0.center" timestamp="1585960348552">
+    <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1613172284787" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612745425682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1130" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585960348552" />
-    <state width="1130" height="282" key="GridCell.Tab.0.left" timestamp="1585960348552">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1130" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585960348552" />
-    <state width="1130" height="282" key="GridCell.Tab.0.right" timestamp="1585960348552">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1130" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585960348552" />
-    <state x="153" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1585938184774">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="122" y="208" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1581623014436" />
-    <state x="153" y="263" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585938184774" />
-    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1585776074897">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585776074897" />
-    <state x="304" y="143" key="new project wizard" timestamp="1585880754273">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="304" y="143" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585880754273" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1585879811874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585879811874" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585865926311">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585865926311" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612745425682" />
   </component>
 </project>
